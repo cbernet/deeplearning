@@ -103,7 +103,7 @@ In particular, "image_data_format" should be set to "tf" and "backend" to "tenso
 ## Test CUDA
 
 ```
-/usr/local/cuda-9.0/extras/demo_suite/nbody -benchmark -numbodies=256000 -device=0
+/usr/local/cuda-8.0/extras/demo_suite/nbody -benchmark -numbodies=256000 -device=0
 ```
 
 Should print:
