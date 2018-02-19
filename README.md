@@ -25,7 +25,7 @@ An anaconda virtual environment will be used to install additional deep learning
 Create your virtual environment:
 
 ```
-conda create -n tf-gpu
+conda create -n tf-gpu python=3.4
 ```
 
 Activate it (everytime you want to use it):
@@ -45,7 +45,7 @@ source deactivate
 **Make sure to first activate your virtual environment as explained above.**
 
 ```
-pip install tensorflow-gpu
+pip install tensorflow-gpu==1.4
 ```
 
 Test it by running this python script:
