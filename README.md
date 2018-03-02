@@ -100,6 +100,12 @@ In particular, "image_data_format" should be set to "tf" and "backend" to "tenso
 
 [Get started with Keras](https://keras.io/getting-started/sequential-model-guide/)
 
+To save your Keras models you will need h5py:
+
+```
+pip install h5py
+```
+
 ## Test CUDA
 
 ```
