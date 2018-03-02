@@ -85,7 +85,7 @@ Hello, TensorFlow!
 ```
 pip install keras
 ```
-<!-- Check your `~/.keras/keras.json` and make sure it looks like this:
+Check your `~/.keras/keras.json` and make sure it looks like this:
 
 ```json
 {
