@@ -25,7 +25,7 @@ An anaconda virtual environment will be used to install additional deep learning
 Create your virtual environment:
 
 ```
-conda create -n tf-gpu python=3.4
+conda create -n tf-gpu python=2.7
 ```
 
 Activate it (everytime you want to use it):
