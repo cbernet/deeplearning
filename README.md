@@ -94,7 +94,7 @@ Check your `~/.keras/keras.json` and make sure it looks like this:
     "image_data_format": "tf",
     "backend": "tensorflow"
 }
-``` -->
+```
 
 In particular, "image_data_format" should be set to "tf" and "backend" to "tensorflow".
 
