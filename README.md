@@ -91,7 +91,7 @@ Check your `~/.keras/keras.json` and make sure it looks like this:
 {
     "epsilon": 1e-07,
     "floatx": "float32",
-    "image_data_format": "tf",
+    "image_data_format": "channels_first",
     "backend": "tensorflow"
 }
 ```
