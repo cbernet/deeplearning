@@ -46,7 +46,7 @@ source deactivate
 **Make sure to first activate your virtual environment as explained above.**
 
 ```
-pip install tensorflow-gpu
+pip install tensorflow-gpu==1.4.0
 ```
 
 Test it by running this python script:
