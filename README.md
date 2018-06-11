@@ -6,12 +6,13 @@
 
 - cuda 8.0.61-1 amd64 (version 9 does not work with tensorflow)
 - Wing IDE
+- ROOT 6.10.08
 
 ### Additional packages
 
 #### Anaconda
 
-Anaconda provides the majority of the scientific python packages. To install:
+Anaconda provides the majority of the scientific python packages. To install, you must do:
 
 ```
 bash /opt/deeplearning/Anaconda2-5.0.1-Linux-x86_64.sh
