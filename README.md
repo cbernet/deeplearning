@@ -13,7 +13,6 @@ Your environment is already set up to use this software
 
 ## How to
 
-We offer the possibility to do:
-
+- [Exchanging code](doc/sharecode.md)
 - [Deep learning](doc/deeplearning.md)
 - [Recursive neural networks](doc/recnn.md)
