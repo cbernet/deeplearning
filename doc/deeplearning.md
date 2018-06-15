@@ -2,22 +2,6 @@
 
 ## Software
 
-### Centrally maintained on cmsgpu-Area-51-R4
-
-- cuda 8.0.61-1 amd64 (version 9 does not work with tensorflow)
-- Wing IDE
-- ROOT 6.10.08
-
-### Additional packages
-
-#### Anaconda
-
-Anaconda provides the majority of the scientific python packages. To install, you must do:
-
-```
-bash /opt/deeplearning/Anaconda2-5.0.1-Linux-x86_64.sh
-```
-
 An anaconda virtual environment will be used to install additional deep learning packages:
 
 - tensorflow-gpu
@@ -46,7 +30,7 @@ source deactivate
 **Make sure to first activate your virtual environment as explained above.**
 
 ```
-pip install tensorflow-gpu==1.4.0
+pip install --user tensorflow-gpu==1.4.0
 ```
 
 Test it by running this python script:
@@ -81,27 +65,24 @@ Hello, TensorFlow!
 
 #### keras
 
-**Make sure to first activate your virtual environment as explained above.**
-
-```
-pip install keras
-```
-<!-- Check your `~/.keras/keras.json` and make sure it looks like this:
+Check your `~/.keras/keras.json` and make sure it looks like this:
 
 ```json
 {
-    "epsilon": 1e-07,
+    "backend": "tensorflow",
     "floatx": "float32",
-    "image_data_format": "tf",
-    "backend": "tensorflow"
+    "epsilon": 1e-07,
+    "image_data_format": "channels_first"
 }
-``` -->
+```
 
-In particular, "image_data_format" should be set to "tf" and "backend" to "tensorflow".
+In particular, `image_data_format` should be set to "tf" and "backend" to "tensorflow".
 
 [Get started with Keras](https://keras.io/getting-started/sequential-model-guide/)
 
 ## Test CUDA
+
+Run a test simulation of n bodies in interaction: 
 
 ```
 /usr/local/cuda-8.0/extras/demo_suite/nbody -benchmark -numbodies=256000 -device=0
