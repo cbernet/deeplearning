@@ -3,7 +3,6 @@
 ## Software installation
 
 ```
-pip install autograd
 git clone git@github.com:GaelTouquet/recnn.git
 cd recnn
 ln -s /data/cbernet/DeepLearning/recnn/data
