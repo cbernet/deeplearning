@@ -5,7 +5,7 @@ f = TFile('test.root','recreate')
 tree = TTree("tree", "my tree")
 
 p4s = np.zeros((10,4))
-tree.Branch("ptcs",p4s,'data[10][4]/D')
+tree.Branch("ptcs",p4s,'ptcs[10][4]/D')
 
 for i in range(20):
     for j in range(10):
