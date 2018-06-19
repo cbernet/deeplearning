@@ -5,7 +5,8 @@
 ```
 git clone git@github.com:GaelTouquet/recnn.git
 cd recnn
-ln -s /data/cbernet/DeepLearning/recnn/data
+ln -s /data/conda/recnn/data
+ln -s /data/conda/recnn/data_gilles_louppe
 ```
 
 ## Repeating the results of Gilles Louppe et al
@@ -18,11 +19,11 @@ The goal of this section is to reproduce the results of the discrimination betwe
 
 The network model trained by Colin is available here:
 
-    /data/cbernet/DeepLearning/recnn/models/model.pickle
+    /data/conda/recnn/models/model.pickle
 
 If you want to train a model yourself (takes about 8 hours on lyovis10), do:
 
-    nohup python train.py data/w-vs-qcd/final/antikt-kt-train.pickle model.pickle &
+    nohup python train.py data_gilles_louppe/w-vs-qcd/final/antikt-kt-train.pickle /data/conda/recnn/models/model.pickle &
     
 ## Testing a model and reproducing the plots 
 
