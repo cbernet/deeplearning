@@ -24,7 +24,7 @@ The network model trained by Colin is available here:
 
 If you want to train a model yourself (takes about 8 hours on lyovis10), do:
 
-    nohup python train.py data_gilles_louppe/w-vs-qcd/final/antikt-kt-train.pickle models/model.pickle &
+    nohup python train.py data_gilles_louppe/w-vs-qcd/final/antikt-kt-train.pickle model.pickle &
     
 ## Testing a model and reproducing the plots 
 
