@@ -3,11 +3,18 @@
 ## Software installation
 
 ```
-git clone git@github.com:GaelTouquet/recnn.git
+git clone git@github.com:GaelTouquet/recnn.git -b refactoring
 cd recnn
 ln -s /data/conda/recnn/data
 ln -s /data/conda/recnn/data_gilles_louppe
 ln -s /data/conda/recnn/models
+```
+
+Pour executer certain script de plotting il vous faudra aussi recuperer le package cpyroot:
+```
+git clone git@github.com:cbernet/cpyroot.git
+cd cpyroot
+source init.sh
 ```
 
 ## Repeating the results of Gilles Louppe et al
@@ -16,16 +23,16 @@ ln -s /data/conda/recnn/models
 
 The goal of this section is to reproduce the results of the discrimination between boosted W jets and QCD jets.
 
-## Training a model
+## Preprocessing, Training, Testing
 
-The network model trained by Colin is available here:
+Those three steps can be done in a single cfg file that can be used like :
 
-    /data/conda/recnn/models/model.pickle
-
-If you want to train a model yourself (takes about 8 hours on lyovis10), do:
-
-    nohup python train.py data_gilles_louppe/w-vs-qcd/final/antikt-kt-train.pickle model.pickle &
+    nohup ipython Hadronic_taus_cfg.py <path to the working directory that will be created> > Hadronic_taus_cfg.out &
     
-## Testing a model and reproducing the plots 
+The rootfiles with the input and the test results are in <workdir>/rawBackground.root and <workdir>/rawSignal.root for background (QCD jets) and signal (hadronic taus) respectively.
+    
+## Plot ROC curves
 
-Not done yet!
+    python ROC.py <path to working directory>
+    
+The produced ROC curves will be in <workdir>/ROCs.root .
