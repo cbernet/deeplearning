@@ -10,6 +10,13 @@ ln -s /data/conda/recnn/data_gilles_louppe
 ln -s /data/conda/recnn/models
 ```
 
+Pour executer certain script de plotting il vous faudra aussi recuperer le package cpyroot:
+```
+git clone git@github.com:cbernet/cpyroot.git
+cd cpyroot
+source init.sh
+```
+
 ## Repeating the results of Gilles Louppe et al
 
 [Original paper](https://arxiv.org/abs/1702.00748)
