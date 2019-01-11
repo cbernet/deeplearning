@@ -29,7 +29,7 @@ Those three steps can be done in a single cfg file that can be used like :
 
     nohup ipython Hadronic_taus_cfg.py <path to the working directory that will be created> > Hadronic_taus_cfg.out &
     
-The rootfiles with the input and the test results are in <workdir>/rawBackground.root and <workdir>/rawSignal.root for background (QCD jets) and signal (hadronic taus) respectively.
+The rootfiles with the input and the test results are in <workdir>/rawBackground.root and <workdir>/rawSignal.root for background (QCD jets) and signal (hadronic taus) respectively. We advise to put <workdir> on a disk with a lot of space.
     
 ## Plot ROC curves
 
