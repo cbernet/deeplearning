@@ -2,65 +2,48 @@
 
 ## Software
 
-An anaconda virtual environment will be used to install additional deep learning packages:
-
-- tensorflow-gpu
-- keras
-
-Create your virtual environment:
-
-```
-conda create -n tf-gpu
-```
+The needed software is in a separate conda environment. 
 
 Activate it (everytime you want to use it):
 
 ```
-source activate tf-gpu
+conda activate tf-gpu
 ```
 
 To deactivate it, you can do the following, **but don't do it now**.
 
 ```
-source deactivate
+conda deactivate
 ```
 
 #### TensorFlow
 
-**Make sure to first activate your virtual environment as explained above.**
+Test that TensorFlow is working properly: 
 
 ```
-pip install --user tensorflow-gpu==1.4.0
+python -c "import tensorflow as tf; tf.enable_eager_execution(); print(tf.reduce_sum(tf.random_normal([1000, 1000])))"
 ```
 
-Test it by running this python script:
-
-```python
-import tensorflow as tf
-hello = tf.constant('Hello, TensorFlow!')
-sess = tf.Session()
-print(sess.run(hello))
-```
-
-You get:
+You should get a printout like: 
 
 ```
-2017-12-04 15:55:52.967528: I tensorflow/core/platform/cpu_feature_guard.cc:137] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.1 SSE4.2 AVX AVX2 AVX512F FMA
-2017-12-04 15:55:53.252195: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1030] Found device 0 with properties:
+2019-02-19 16:13:55.798638: I tensorflow/core/platform/cpu_feature_guard.cc:141] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.1 SSE4.2 AVX AVX2 AVX512F FMA
+2019-02-19 16:13:56.000996: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1432] Found device 0 with properties: 
 name: GeForce GTX 1080 Ti major: 6 minor: 1 memoryClockRate(GHz): 1.582
 pciBusID: 0000:17:00.0
-totalMemory: 10.91GiB freeMemory: 10.75GiB
-2017-12-04 15:55:53.519858: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1030] Found device 1 with properties:
+totalMemory: 10.92GiB freeMemory: 10.76GiB
+2019-02-19 16:13:56.148129: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1432] Found device 1 with properties: 
 name: GeForce GTX 1080 Ti major: 6 minor: 1 memoryClockRate(GHz): 1.582
 pciBusID: 0000:65:00.0
-totalMemory: 10.91GiB freeMemory: 10.24GiB
-2017-12-04 15:55:53.520374: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1045] Device peer to peer matrix
-2017-12-04 15:55:53.520396: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1051] DMA: 0 1
-2017-12-04 15:55:53.520400: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1061] 0:   Y Y
-2017-12-04 15:55:53.520402: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1061] 1:   Y Y
-2017-12-04 15:55:53.520409: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1120] Creating TensorFlow device (/device:GPU:0) -> (device: 0, name: GeForce GTX 1080 Ti, pci bus id: 0000:17:00.0, compute capability: 6.1)
-2017-12-04 15:55:53.520412: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1120] Creating TensorFlow device (/device:GPU:1) -> (device: 1, name: GeForce GTX 1080 Ti, pci bus id: 0000:65:00.0, compute capability: 6.1)
-Hello, TensorFlow!
+totalMemory: 10.91GiB freeMemory: 10.71GiB
+2019-02-19 16:13:56.148991: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1511] Adding visible gpu devices: 0, 1
+2019-02-19 16:13:56.571692: I tensorflow/core/common_runtime/gpu/gpu_device.cc:982] Device interconnect StreamExecutor with strength 1 edge matrix:
+2019-02-19 16:13:56.571724: I tensorflow/core/common_runtime/gpu/gpu_device.cc:988]      0 1 
+2019-02-19 16:13:56.571730: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1001] 0:   N Y 
+2019-02-19 16:13:56.571733: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1001] 1:   Y N 
+2019-02-19 16:13:56.572306: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1115] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 10407 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1080 Ti, pci bus id: 0000:17:00.0, compute capability: 6.1)
+2019-02-19 16:13:56.572660: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1115] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:1 with 10358 MB memory) -> physical GPU (device: 1, name: GeForce GTX 1080 Ti, pci bus id: 0000:65:00.0, compute capability: 6.1)
+tf.Tensor(11.957642, shape=(), dtype=float32)
 ```
 
 #### keras
@@ -76,44 +59,11 @@ Check your `~/.keras/keras.json` and make sure it looks like this:
 }
 ```
 
-In particular, `image_data_format` should be set to "tf" and "backend" to "tensorflow".
+In particular: 
+ 
+* `image_data_format` should be set to "channels_first" and 
+* "backend" to "tensorflow".
 
 [Get started with Keras](https://keras.io/getting-started/sequential-model-guide/)
 
-## Test CUDA
-
-Run a test simulation of n bodies in interaction: 
-
-```
-/usr/local/cuda-8.0/extras/demo_suite/nbody -benchmark -numbodies=256000 -device=0
-```
-
-Should print:
-
-```
-Run "nbody -benchmark [-numbodies=<numBodies>]" to measure performance.
-	-fullscreen       (run n-body simulation in fullscreen mode)
-	-fp64             (use double precision floating point values for simulation)
-	-hostmem          (stores simulation data in host memory)
-	-benchmark        (run benchmark to measure performance)
-	-numbodies=<N>    (number of bodies (>= 1) to run in simulation)
-	-device=<d>       (where d=0,1,2.... for the CUDA device to use)
-	-numdevices=<i>   (where i=(number of CUDA devices > 0) to use for simulation)
-	-compare          (compares simulation results running once on the default GPU and once on the CPU)
-	-cpu              (run n-body simulation on the CPU)
-	-tipsy=<file.bin> (load a tipsy model file for simulation)
-
-NOTE: The CUDA Samples are not meant for performance measurements. Results may vary when GPU Boost is enabled.
-
-> Windowed mode
-> Simulation data stored in video memory
-> Single precision floating point simulation
-> 1 Devices used for simulation
-gpuDeviceInit() CUDA Device [0]: "GeForce GTX 1080 Ti
-> Compute 6.1 CUDA device: [GeForce GTX 1080 Ti]
-number of bodies = 256000
-256000 bodies, total time for 10 iterations: 1932.708 ms
-= 339.089 billion interactions per second
-= 6781.781 single-precision GFLOP/s at 20 flops per interaction
-
-```
+## Add a small deep learning test here
