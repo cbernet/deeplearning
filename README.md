@@ -8,7 +8,19 @@
 - anaconda2
 - root 6.10.08
 
-Your environment is already set up to use this software
+Your environment is already set up to use this software.
+
+You just need to activate anaconda by doing: 
+
+```
+conda activate
+```
+
+And you can deactivate it by doing: 
+
+```
+conda deactivate
+```
 
 ## How to
 
