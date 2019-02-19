@@ -15,4 +15,4 @@ Your environment is already set up to use this software
 
 - [Exchanging code](doc/sharecode.md)
 - [Deep learning](doc/deeplearning.md)
-- [Recursive neural networks](doc/recnn.md)
+- [Recursive neural network](https://github.com/cbernet/recnn.git)
